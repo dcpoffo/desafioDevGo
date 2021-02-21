@@ -17,13 +17,19 @@ namespace backend.data
         Task<SalaTreinamento> GetSalaTreinamentoAsyncById(int salaTreinamentoId);
 
         Task<SalaCafe[]> GetAllSalasCafeAsync();
-        Task<SalaCafe> GetSalaAsyncById(int salaCafeId);
+        Task<SalaCafe> GetSalaCafeAsyncById(int salaCafeId);
 
         Task<Etapa[]> GetAllEtapasAsync();
         Task<Etapa> GetEtapaAsyncById(int etapaId);
 
         Task<HorarioCafe[]> GetAllHorariosCafeAsync();
         Task<HorarioCafe> GetHorarioCafeAsyncById(int horarioCafeId);
+
+        Task<PessoaSalaTreinamento[]> GetAllPessoasSalaTreinamentoAsync(bool incluirSalaTreinamento, bool incluirPessoa, bool incluirEtapa, bool incluirSalaCafe, bool incluirHorarioCafe);
+        Task<PessoaSalaTreinamento> GetAllPessoasSalaTreinamentoAsyncById(int pessoaSalaTreinamentoId, bool incluirSalaTreinamento, bool incluirPessoa, bool incluirEtapa, bool incluirSalaCafe, bool incluirHorarioCafe);
+        Task<PessoaSalaTreinamento[]> GetAllDadosTreinamentoAsyncByPessoaId(int pessoaId, bool incluirSalaTreinamento, bool incluirPessoa, bool incluirEtapa, bool incluirSalaCafe, bool incluirHorarioCafe);
+        Task<PessoaSalaTreinamento[]> GetAllPessoasSalaTreinamentoBySalaTreinamentoIdAsync(int salaTreinamentoId, bool incluirSalaTreinamento, bool incluirPessoa, bool incluirEtapa);
+        Task<PessoaSalaTreinamento[]> GetAllPessoasSalaTreinamentoBySalaCafeIdAsync(int salaCafeId, bool incluirSalaCafe, bool incluirPessoa, bool incluirEtapa);
 
         // Ao consultar uma pessoa cadastrada no treinamento, o sistema deverá retornar à sala em que a 
         // pessoa ficará em cada etapa e o espaço onde ela realizará cada intervalo de café.

@@ -16,7 +16,8 @@ namespace backend.data
         public DbSet<Etapa> Etapa { get; set; }
         public DbSet<HorarioCafe> HorarioCafe { get; set; }
         public DbSet<PessoaSalaTreinamento> PessoaSalaTreinamento { get; set; }
-        public DbSet<PessoaSalaCafe> PessoaSalaCafe { get; set; }
+
+        //public DbSet<PessoaSalaCafe> PessoaSalaCafe { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
           {
@@ -41,47 +42,45 @@ namespace backend.data
                    .HasData(new List<SalaCafe>(){
                    new SalaCafe(1, "Café 1"),
                    new SalaCafe(2, "Café 2"),
-                   new SalaCafe(3, "Café 3"),
-                   new SalaCafe(4, "Café 4"),
                    });
                
                builder.Entity<Etapa>()
                .HasData(new List<Etapa>(){
-                   new Etapa(1, DateTime.Now, DateTime.Now),
-                   new Etapa(2, DateTime.Now, DateTime.Now),
+                   new Etapa(1, DateTime.Now.AddDays(30), DateTime.Now.AddDays(30).AddHours(4)),
+                   new Etapa(2, DateTime.Now.AddDays(31), DateTime.Now.AddDays(31).AddHours(4)),
                });
 
                builder.Entity<HorarioCafe>()
                .HasData(new List<HorarioCafe>(){
-                   new HorarioCafe(1, DateTime.Now, DateTime.Now),
-                   new HorarioCafe(2, DateTime.Now, DateTime.Now),
+                   new HorarioCafe(1, DateTime.Now.AddDays(30).AddHours(2), DateTime.Now.AddDays(30).AddMinutes(15)),
+                   new HorarioCafe(2, DateTime.Now.AddDays(31).AddHours(2), DateTime.Now.AddDays(30).AddMinutes(15)),
                });
 
                builder.Entity<PessoaSalaTreinamento>()
                .HasData(new List<PessoaSalaTreinamento>(){
-                   new PessoaSalaTreinamento(1, 1,1,1),
-                   new PessoaSalaTreinamento(2, 2,2,1),
-                   new PessoaSalaTreinamento(3, 3,3,1),
-                   new PessoaSalaTreinamento(4, 4,4,1),
-                   new PessoaSalaTreinamento(5, 1,5,1),
-                   new PessoaSalaTreinamento(6, 2,1,2),
-                   new PessoaSalaTreinamento(7, 3,2,2),
-                   new PessoaSalaTreinamento(8, 4,3,2),
-                   new PessoaSalaTreinamento(9, 1,4,2),
+                   new PessoaSalaTreinamento(1,1,1,1,2,1),
+                   new PessoaSalaTreinamento(2,1,2,1,2,1),
+                   new PessoaSalaTreinamento(3,1,3,1,2,1),
+                   new PessoaSalaTreinamento(4,1,4,1,2,1),
+                   new PessoaSalaTreinamento(5,1,5,1,2,1),
+                   new PessoaSalaTreinamento(6,2,1,2,1,2),
+                   new PessoaSalaTreinamento(7,2,2,2,1,2),
+                   new PessoaSalaTreinamento(8,2,3,2,1,2),
+                   new PessoaSalaTreinamento(9,2,4,2,1,2),
                });
 
-               builder.Entity<PessoaSalaCafe>()
-               .HasData(new List<PessoaSalaCafe>(){
-                   new PessoaSalaCafe(1, 2,1,1),
-                   new PessoaSalaCafe(2, 2,2,1),
-                   new PessoaSalaCafe(3, 2,3,1),
-                   new PessoaSalaCafe(4, 2,4,1),
-                   new PessoaSalaCafe(5, 2,5,1),
-                   new PessoaSalaCafe(6, 4,1,2),
-                   new PessoaSalaCafe(7, 4,2,2),
-                   new PessoaSalaCafe(8, 4,3,2),
-                   new PessoaSalaCafe(9, 4,4,2),
-               });
+            //    builder.Entity<PessoaSalaCafe>()
+            //    .HasData(new List<PessoaSalaCafe>(){
+            //        new PessoaSalaCafe(1,1,1,1),
+            //        new PessoaSalaCafe(2,1,2,1),
+            //        new PessoaSalaCafe(3,1,3,1),
+            //        new PessoaSalaCafe(4,1,4,1),
+            //        new PessoaSalaCafe(5,1,5,1),
+            //        new PessoaSalaCafe(6,2,1,2),
+            //        new PessoaSalaCafe(7,2,2,2),
+            //        new PessoaSalaCafe(8,2,3,2),
+            //        new PessoaSalaCafe(9,2,4,2),
+            //    });
           }
     }
 }

@@ -101,7 +101,7 @@ namespace backend.data
                return await query.FirstOrDefaultAsync();
           }
 
-          public async Task<SalaCafe> GetSalaAsyncById(int salaCafeId)
+          public async Task<SalaCafe> GetSalaCafeAsyncById(int salaCafeId)
           {
                IQueryable<SalaCafe> query = _context.SalaCafe;
                query = query.AsNoTracking().OrderBy(a => a.Id)
@@ -117,6 +117,148 @@ namespace backend.data
                                            .Where(a => a.Id == salaTreinamentoId);
 
                return await query.FirstOrDefaultAsync();
-          }     
+          }
+
+          public async Task<PessoaSalaTreinamento[]> GetAllDadosTreinamentoAsyncByPessoaId(int pessoaId, bool incluirSalaTreinamento, bool incluirPessoa, bool incluirEtapa, bool incluirSalaCafe, bool incluirHorarioCafe)
+          {
+               IQueryable<PessoaSalaTreinamento> query = _context.PessoaSalaTreinamento;
+               
+               if (incluirSalaTreinamento)
+               {
+                   query = query.Include(a => a.SalaTreinamento);
+               }
+
+               if (incluirPessoa)
+               {
+                   query = query.Include(a => a.Pessoa);
+               }
+
+               if (incluirEtapa)
+               {
+                   query = query.Include(a => a.Etapa);
+               }
+
+               if (incluirSalaCafe)
+               {
+                   query = query.Include(a => a.SalaCafe);
+               }
+
+               if (incluirHorarioCafe)
+               {
+                   query = query.Include(a => a.HorarioCafe);
+               }
+
+               query = query.AsNoTracking().OrderBy(a => a.Id)
+                                           .Where(a => a.PessoaId == pessoaId) ;
+               return await query.ToArrayAsync();
+          }
+
+          public async Task<PessoaSalaTreinamento[]> GetAllPessoasSalaTreinamentoAsync(bool incluirSalaTreinamento, 
+                              bool incluirPessoa, bool incluirEtapa, bool incluirSalaCafe, bool incluirHorarioCafe)
+          {
+               IQueryable<PessoaSalaTreinamento> query = _context.PessoaSalaTreinamento;
+
+               if (incluirSalaTreinamento)
+               {
+                   query = query.Include(a => a.SalaTreinamento);
+               }
+
+               if (incluirPessoa)
+               {
+                   query = query.Include(a => a.Pessoa);
+               }
+
+               if (incluirEtapa)
+               {
+                   query = query.Include(a => a.Etapa);
+               }
+               
+               query = query.AsNoTracking().OrderBy(a => a.Id);
+
+               return await query.ToArrayAsync();
+          }
+
+          public async Task<PessoaSalaTreinamento[]> GetAllPessoasSalaTreinamentoBySalaTreinamentoIdAsync(int salaTreinamentoId,
+                               bool incluirSalaTreinamento, bool incluirPessoa, bool incluirEtapa)
+          {
+               IQueryable<PessoaSalaTreinamento> query = _context.PessoaSalaTreinamento;
+               
+               if (incluirSalaTreinamento)
+               {
+                   query = query.Include(a => a.SalaTreinamento);
+               }
+
+               if (incluirPessoa)
+               {
+                   query = query.Include(a => a.Pessoa);
+               }
+
+               if (incluirEtapa)
+               {
+                   query = query.Include(a => a.Etapa);
+               }              
+
+               query = query.AsNoTracking().OrderBy(a => a.Id)
+                                           .Where(a => a.SalaTreinamentoId == salaTreinamentoId) ;
+               return await query.ToArrayAsync();
+          }
+
+          public async Task<PessoaSalaTreinamento[]> GetAllPessoasSalaTreinamentoBySalaCafeIdAsync(int salaCafeId, bool incluirSalaCafe, bool incluirPessoa, bool incluirEtapa)
+          {
+               IQueryable<PessoaSalaTreinamento> query = _context.PessoaSalaTreinamento;
+                              
+               if (incluirPessoa)
+               {
+                   query = query.Include(a => a.Pessoa);
+               }
+
+               if (incluirEtapa)
+               {
+                   query = query.Include(a => a.Etapa);
+               }
+
+               if (incluirSalaCafe)
+               {
+                   query = query.Include(a => a.SalaCafe);
+               }               
+
+               query = query.AsNoTracking().OrderBy(a => a.Id)
+                                           .Where(a => a.SalaCafeId == salaCafeId) ;
+               return await query.ToArrayAsync();
+          }
+
+          public async Task<PessoaSalaTreinamento> GetAllPessoasSalaTreinamentoAsyncById(int pessoaSalaTreinamentoId, bool incluirSalaTreinamento, bool incluirPessoa, bool incluirEtapa, bool incluirSalaCafe, bool incluirHorarioCafe)
+          {
+               IQueryable<PessoaSalaTreinamento> query = _context.PessoaSalaTreinamento;
+
+               if (incluirSalaTreinamento)
+               {
+                   query = query.Include(a => a.SalaTreinamento);
+               }
+
+               if (incluirPessoa)
+               {
+                   query = query.Include(a => a.Pessoa);
+               }
+
+               if (incluirEtapa)
+               {
+                   query = query.Include(a => a.Etapa);
+               }
+
+               if (incluirSalaCafe)
+               {
+                   query = query.Include(a => a.SalaCafe);
+               }
+
+               if (incluirHorarioCafe)
+               {
+                   query = query.Include(a => a.HorarioCafe);
+               }
+               
+               query = query.AsNoTracking().OrderBy(a => a.Id);
+
+               return await query.FirstOrDefaultAsync();
+          }          
      }
 }

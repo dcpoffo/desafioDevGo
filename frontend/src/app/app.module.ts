@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -25,6 +25,13 @@ import { HeaderComponent } from './components/template/header/header.component';
 import { FooterComponent } from './components/template/footer/footer.component';
 import { NavComponent } from './components/template/nav/nav.component';
 
+//Pessoas
+import { PessoaCrudComponent  } from './views/pessoa-crud/pessoa-crud.component';
+import { PessoaReadComponent  } from './components/pessoa/pessoa-read/pessoa-read.component';
+import { PessoaCreateComponent  } from './components/pessoa/pessoa-create/pessoa-create.component';
+import { PessoaDeleteComponent  } from './components/pessoa/pessoa-delete/pessoa-delete.component';
+import { PessoaUpdateComponent  } from './components/pessoa/pessoa-update/pessoa-update.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,11 +39,17 @@ import { NavComponent } from './components/template/nav/nav.component';
     HeaderComponent,
     FooterComponent,
     NavComponent,
+    PessoaReadComponent,
+    PessoaCrudComponent,
+    PessoaCreateComponent,
+    PessoaDeleteComponent,
+    PessoaUpdateComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatCardModule,
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
@@ -47,7 +60,6 @@ import { NavComponent } from './components/template/nav/nav.component';
     MatButtonModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatCardModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,

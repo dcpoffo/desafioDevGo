@@ -6,13 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace backend.Controllers
 {
-     [ApiController]
-     [Route("[controller]")]
-     public class PessoaController : ControllerBase
-     {
-          private readonly IRepository _repositorio;
+    [ApiController]
+    [Route("[controller]")]
+    public class HorarioCafeController : ControllerBase
+    {
+        private readonly IRepository _repositorio;
 
-          public PessoaController(IRepository repositorio)
+          public HorarioCafeController(IRepository repositorio)
           {
                _repositorio = repositorio;
           }
@@ -22,78 +22,77 @@ namespace backend.Controllers
           {
                try
                {
-                    var result = await _repositorio.GetAllPessoasAsync();
+                    var result = await _repositorio.GetAllHorariosCafeAsync();
                     return Ok(result);
                }
                catch (Exception ex)
                {
-                    return BadRequest($"Erro ao obter Pessoas: \n{ex.Message}");
+                    return BadRequest($"Erro ao obter Horarios de Café: \n{ex.Message}");
                }
           }
 
-          [HttpGet("{pessoaId}")]
-          public async Task<IActionResult> GetById(int pessoaId)
+          [HttpGet("{horarioCafeId}")]
+          public async Task<IActionResult> GetById(int horarioCafeId)
           {
                try
                {
-                    var result = await _repositorio.GetPessoaAsyncById(pessoaId);
+                    var result = await _repositorio.GetHorarioCafeAsyncById(horarioCafeId);
                     return Ok(result);
                }
                catch (Exception ex)
                {
-                    return BadRequest($"Erro ao obter Pessoa: \n{ex.Message}");
+                    return BadRequest($"Erro ao obter Horario de Café: \n{ex.Message}");
                }
           }
 
           [HttpPost]
-          public async Task<IActionResult> Post(Pessoa pessoa)
+          public async Task<IActionResult> Post(HorarioCafe horarioCafe)
           {
                try
                {
-                    _repositorio.Add(pessoa);
+                    _repositorio.Add(horarioCafe);
                     if (await _repositorio.SaveChangesAsync())
                     {
-                         return Ok(pessoa);
+                         return Ok(horarioCafe);
                     }
                }
                catch (Exception ex)
                {
-                    return BadRequest($"Erro ao salvar Pessoa: {ex.Message}");
+                    return BadRequest($"Erro ao salvar Horario de Café: {ex.Message}");
                }
                return BadRequest();
           }
 
-          [HttpPut("{pessoaId}")]
-          public async Task<IActionResult> Put(int pessoaId, Pessoa pessoa)
+          [HttpPut("{horarioCafeId}")]
+          public async Task<IActionResult> Put(int horarioCafeId, HorarioCafe horarioCafe)
           {
                try
                {
-                    var pessoaCadastrada = await _repositorio.GetPessoaAsyncById(pessoaId);
+                    var horarioCafeCadastrado = await _repositorio.GetSalaCafeAsyncById(horarioCafeId);
 
-                    if (pessoaCadastrada == null)
+                    if (horarioCafeCadastrado == null)
                     {
                          return NotFound();
                     }
 
-                    _repositorio.Update(pessoa);
+                    _repositorio.Update(horarioCafe);
                     if (await _repositorio.SaveChangesAsync())
                     {
-                         return Ok(pessoa);
+                         return Ok(horarioCafe);
                     }
                }
                catch (Exception ex)
                {
-                    return BadRequest($"Erro ao alterar Pessoa: {ex.Message}");
+                    return BadRequest($"Erro ao alterar Horario de Café: {ex.Message}");
                }
                return BadRequest();
           }
-
-          [HttpDelete("{pessoaId}")]
-          public async Task<IActionResult> Delete(int pessoaId)
+          [HttpDelete("{horarioCafeId}")]
+          public async Task<IActionResult> Delete(int horarioCafeId)
           {
                try
                {
-                    var cadastrado = await _repositorio.GetPessoaAsyncById(pessoaId);
+                    var cadastrado = await _repositorio.GetHorarioCafeAsyncById(horarioCafeId);
                     if (cadastrado == null)
                     {
                          return NotFound();
@@ -105,16 +104,16 @@ namespace backend.Controllers
                          return Ok(
                               new
                               {
-                                   message = "Pessoa removida com sucesso"
+                                   message = "Horário de Café removido com sucesso"
                               }
                          );
                     }
                }
                catch (Exception ex)
                {
-                    return BadRequest($"Erro ao excluir a Pessoa: {ex.Message}");
+                    return BadRequest($"Erro ao excluir Horário de Café: {ex.Message}");
                }
                return BadRequest();
           }
-     }
+    }
 }
