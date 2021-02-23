@@ -32,6 +32,35 @@ import { PessoaCreateComponent  } from './components/pessoa/pessoa-create/pessoa
 import { PessoaDeleteComponent  } from './components/pessoa/pessoa-delete/pessoa-delete.component';
 import { PessoaUpdateComponent  } from './components/pessoa/pessoa-update/pessoa-update.component';
 
+//salaTreinamento
+import { SalaTreinamentoCrudComponent  } from './views/salatreinamento-crud/salaTreinamento-crud.component';
+import { SalaTreinamentoReadComponent  } from './components/salaTreinamento/salaTreinamento-read/salaTreinamento-read.component';
+import { SalaTreinamentoCreateComponent  } from './components/salaTreinamento/salaTreinamento-create/salaTreinamento-create.component';
+import { SalaTreinamentoDeleteComponent  } from './components/salaTreinamento/salaTreinamento-delete/salaTreinamento-delete.component';
+import { SalaTreinamentoUpdateComponent  } from './components/salaTreinamento/salaTreinamento-update/salaTreinamento-update.component';
+
+//salaCafe
+import { SalaCafeCrudComponent  } from './views/salaCafe-crud/salaCafe-crud.component';
+import { SalaCafeReadComponent  } from './components/salaCafe/salacafe-read/salaCafe-read.component';
+import { SalaCafeCreateComponent  } from './components/salaCafe/salaCafe-create/salaCafe-create.component';
+import { SalaCafeDeleteComponent  } from './components/salaCafe/salaCafe-delete/salaCafe-delete.component';
+import { SalaCafeUpdateComponent  } from './components/salaCafe/salaCafe-update/salaCafe-update.component';
+
+//etapa
+import { EtapaCrudComponent } from './views/etapa-crud/etapa-crud.component';
+import { EtapaReadComponent } from './components/etapa/etapa-read/etapa-read.component';
+import { EtapaCreateComponent  } from './components/etapa/etapa-create/etapa-create.component';
+import { EtapaDeleteComponent  } from './components/etapa/etapa-delete/etapa-delete.component';
+import { EtapaUpdateComponent  } from './components/etapa/etapa-update/etapa-update.component';
+
+//horarioCafe
+import { HorarioCafeCrudComponent  } from './views/horarioCafe-crud/horarioCafe-crud.component';
+import { HorarioCafeReadComponent  } from './components/horarioCafe/horarioCafe-read/horarioCafe-read.component';
+import { HorarioCafeCreateComponent  } from './components/horarioCafe/horarioCafe-create/horarioCafe-create.component';
+import { HorarioCafeDeleteComponent  } from './components/horarioCafe/horarioCafe-delete/horarioCafe-delete.component';
+import { HorarioCafeUpdateComponent  } from './components/horarioCafe/horarioCafe-update/horarioCafe-update.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,9 +73,34 @@ import { PessoaUpdateComponent  } from './components/pessoa/pessoa-update/pessoa
     PessoaCreateComponent,
     PessoaDeleteComponent,
     PessoaUpdateComponent,
+    SalaTreinamentoCrudComponent,
+    SalaTreinamentoReadComponent,
+    SalaTreinamentoCreateComponent,
+    SalaTreinamentoDeleteComponent,
+    SalaTreinamentoUpdateComponent,
+    SalaCafeCrudComponent,
+    SalaCafeReadComponent,
+    SalaCafeCreateComponent,
+    SalaCafeDeleteComponent,
+    SalaCafeUpdateComponent,
+    EtapaCrudComponent,
+    EtapaReadComponent,
+    EtapaCreateComponent,
+    EtapaDeleteComponent,
+    EtapaUpdateComponent,
+    HorarioCafeCrudComponent,
+    HorarioCafeReadComponent,
+    HorarioCafeCreateComponent,
+    HorarioCafeDeleteComponent,
+    HorarioCafeUpdateComponent,
   ],
+
+
+
   imports: [
+
     BrowserModule,
+
     AppRoutingModule,
     BrowserAnimationsModule,
     MatCardModule,

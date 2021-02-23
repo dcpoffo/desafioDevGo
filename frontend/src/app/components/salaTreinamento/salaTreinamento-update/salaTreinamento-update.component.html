@@ -1,0 +1,23 @@
+<div>
+    <mat-card>
+        <mat-card-title>Alterar Sala de Treinamento</mat-card-title>
+        <form [formGroup]="salaTreinamentoForm">
+            <mat-form-field appearance="outline">
+                <input formControlName="nome" matInput placeholder="Nome da Sala" [(ngModel)]="salaTreinamento.nome">
+                <mat-error *ngIf="temErro('nome', 'required')">O nome deve ser preenchido</mat-error>
+                <mat-error *ngIf="temErro('nome', 'minlength')">O nome deve ter pelo menos 3 caracteres</mat-error>
+                <mat-error *ngIf="temErro('nome', 'maxlength')">O nome deve ser menor que 20 caracteres</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <input formControlName="lotacao" type="number" onkeydown="return event.keyCode !== 69" matInput placeholder="Nº pessoas por sala" [(ngModel)]="salaTreinamento.lotacao" />
+                <mat-error *ngIf="temErro('lotacao', 'required')">A quantidade de pessoas deve ser informada</mat-error>
+                <mat-error *ngIf="temErro('lotacao', 'min')">No mínimo 4 pessoas por sala</mat-error>
+            </mat-form-field>
+
+        </form>
+        <button [disabled]="!salaTreinamentoForm.valid" mat-raised-button (click)="atualizar()" color="primary"> Atualizar</button>
+
+        <button mat-raised-button (click)="cancelar()">Cancelar</button>
+    </mat-card>
+</div>
