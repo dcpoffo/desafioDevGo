@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Etapa } from 'src/app/models/Etapa';
+import { EtapaService } from 'src/app/services/etapa.service';
 
 @Component({
   selector: 'app-etapa-read',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EtapaReadComponent implements OnInit {
 
-  constructor() { }
+  etapas: Etapa[];
+  displayedColumns = ['id', 'dataHoraInicio', 'dataHoraFim', 'acoes'];
+
+  constructor(
+    private etapaServico: EtapaService
+  ) { }
 
   ngOnInit() {
+    this.etapaServico.getAll().subscribe(etapas => {
+      this.etapas = etapas;
+      console.log(etapas);
+    });
   }
 
 }

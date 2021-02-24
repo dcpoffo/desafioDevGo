@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SalaCafe } from 'src/app/models/SalaCafe';
+import { SalaCafeService } from 'src/app/services/salaCafe.service';
 
 @Component({
   selector: 'app-salaCafe-read',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SalaCafeReadComponent implements OnInit {
 
-  constructor() { }
+  salasCafe: SalaCafe[];
+  displayedColumns = ['id', 'nome', 'acoes'];
+
+  constructor(
+    private salaCafeServico: SalaCafeService
+
+  ) { }
 
   ngOnInit() {
+    this.salaCafeServico.getAll().subscribe(salasCafe => {
+      this.salasCafe = salasCafe;
+      console.log(salasCafe);
+    });
   }
 
 }

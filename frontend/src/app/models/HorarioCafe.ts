@@ -1,11 +1,11 @@
 export class HorarioCafe {
   id?: number;
-  DataHoraInicio: Date;
-  DataHoraFim: Date;
+  dataHoraInicio: Date;
+  dataHoraFim: Date;
 
   constructor() {
     this.id = 0;
-    this.DataHoraInicio = null;
-    this.DataHoraFim = null;
+    this.dataHoraInicio = null;
+    this.dataHoraFim = null;
   }
 }

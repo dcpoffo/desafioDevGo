@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { HeaderService } from 'src/app/components/template/header/header.service';
 
 @Component({
   selector: 'app-salaCafe-crud',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SalaCafeCrudComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private headerService: HeaderService
+  ) {
+    headerService.headerData = {
+      title: 'Cadastro de Espaços de Café',
+      icon: 'local_cafe',
+      routeUrl: '/salasCafe'
+    };
+  }
 
   ngOnInit() {
   }
 
+  novo(): void {
+    this.router.navigate(['/salasCafe/create']);
+  }
 }
