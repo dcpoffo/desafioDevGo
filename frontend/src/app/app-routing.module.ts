@@ -33,6 +33,12 @@ import { HorarioCafeCreateComponent  } from './components/horarioCafe/horarioCaf
 import { HorarioCafeDeleteComponent  } from './components/horarioCafe/horarioCafe-delete/horarioCafe-delete.component';
 import { HorarioCafeUpdateComponent  } from './components/horarioCafe/horarioCafe-update/horarioCafe-update.component';
 
+//treinamento
+import { PessoaSalaTreinamentoCrudComponent } from './views/pessoaSalaTreinamento-crud/pessoaSalaTreinamento-crud.component';
+import { PessoaSalaTreinamentoCreateComponent } from './components/pessoaSalaTreinamento/pessoaSalaTreinamento-create/pessoaSalaTreinamento-create.component';
+import { PessoaSalaTreinamentoUpdateComponent } from './components/pessoaSalaTreinamento/pessoaSalaTreinamento-update/pessoaSalaTreinamento-update.component';
+import { PessoaSalaTreinamentoDeleteComponent } from './components/pessoaSalaTreinamento/pessoaSalaTreinamento-delete/pessoaSalaTreinamento-delete.component';
+
 const routes: Routes = [
   { path: '', component: HomeComponent },
 
@@ -65,6 +71,13 @@ const routes: Routes = [
   {path: 'horariosCafe/create', component: HorarioCafeCreateComponent},
   {path: 'horariosCafe/update/:id', component: HorarioCafeUpdateComponent},
   {path: 'horariosCafe/delete/:id', component: HorarioCafeDeleteComponent},
+
+  //treinamento
+  {path: 'pessoasSalaTreinamento', component: PessoaSalaTreinamentoCrudComponent},
+  {path: 'pessoasSalaTreinamento/create', component: PessoaSalaTreinamentoCreateComponent},
+  {path: 'pessoasSalaTreinamento/update/:id', component: PessoaSalaTreinamentoUpdateComponent},
+  {path: 'pessoasSalaTreinamento/delete/:id', component: PessoaSalaTreinamentoDeleteComponent},
+
 ];
 
 @NgModule({

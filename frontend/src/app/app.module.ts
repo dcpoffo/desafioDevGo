@@ -60,6 +60,13 @@ import { HorarioCafeCreateComponent  } from './components/horarioCafe/horarioCaf
 import { HorarioCafeDeleteComponent  } from './components/horarioCafe/horarioCafe-delete/horarioCafe-delete.component';
 import { HorarioCafeUpdateComponent  } from './components/horarioCafe/horarioCafe-update/horarioCafe-update.component';
 
+//treinamento
+import { PessoaSalaTreinamentoCrudComponent } from './views/pessoaSalaTreinamento-crud/pessoaSalaTreinamento-crud.component';
+import { PessoaSalaTreinamentoCreateComponent } from './components/pessoaSalaTreinamento/pessoaSalaTreinamento-create/pessoaSalaTreinamento-create.component';
+import { PessoaSalaTreinamentoReadComponent } from './components/pessoaSalaTreinamento/pessoaSalaTreinamento-read/pessoaSalaTreinamento-read.component';
+import { PessoaSalaTreinamentoUpdateComponent } from './components/pessoaSalaTreinamento/pessoaSalaTreinamento-update/pessoaSalaTreinamento-update.component';
+import { PessoaSalaTreinamentoDeleteComponent } from './components/pessoaSalaTreinamento/pessoaSalaTreinamento-delete/pessoaSalaTreinamento-delete.component';
+
 
 @NgModule({
   declarations: [
@@ -93,6 +100,11 @@ import { HorarioCafeUpdateComponent  } from './components/horarioCafe/horarioCaf
     HorarioCafeCreateComponent,
     HorarioCafeDeleteComponent,
     HorarioCafeUpdateComponent,
+    PessoaSalaTreinamentoCrudComponent,
+    PessoaSalaTreinamentoCreateComponent,
+    PessoaSalaTreinamentoReadComponent,
+    PessoaSalaTreinamentoUpdateComponent,
+    PessoaSalaTreinamentoDeleteComponent,
   ],
 
 

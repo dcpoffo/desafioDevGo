@@ -172,6 +172,16 @@ namespace backend.data
                {
                    query = query.Include(a => a.Etapa);
                }
+
+               if (incluirSalaCafe)
+               {
+                   query = query.Include(a => a.SalaCafe);
+               }
+
+               if (incluirHorarioCafe)
+               {
+                   query = query.Include(a => a.HorarioCafe);
+               }
                
                query = query.AsNoTracking().OrderBy(a => a.Id);
 
