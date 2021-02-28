@@ -109,7 +109,7 @@ pesquisaSalaCafeResultado/id
 ```
 
 ### back-end (\backend)
-API desenvolvida em .Net Core para comunicação entre o Banco de Dados SQLServer e a aplicação principal.
+API desenvolvida em .Net Core para comunicação entre o Banco de Dados MySQL e a aplicação principal.
 ```
 dotnet new webapi
 ```
@@ -121,18 +121,21 @@ dotnet new webapi
     - Repositoy: classe que implementa a interface IRepository.
  - Controllers: responsável por responder as requisições em nossa API.
  - models: modelo da aplicação, que seriam as referências as tabelas que temos no banco de dados.
- - Migrations: guarda informações das migrações qua são feitas. Através do comando abaixo, EF Core "liga" as informações contidas na pasta models com as contidas no DbContext e  cria um esquema da nossa base de dados: banco e tabelas, criando um histórico dentro desta pasta.
+ - Migrations: guarda informações das migrações qua são feitas. Através do comando abaixo, EF Core "liga" as informações contidas na pasta models com as contidas no DbContext e cria um esquema da nossa base de dados: banco e tabelas, criando um histórico dentro desta pasta.
 Com o próximo comando, o EF cria/atualiza o banco de dados a partir da migração.
 ```
-dotnet ef migrations add Nome-Migration
+dotnet ef migrations add Nome-Migracao
 dotnet ef database update
 ```
 
 Depois de pronta, para testar a API, foi utilizado o Postman. O objetivo é fazer requisições HTTP e avaliar se as repostas (retornos) foram dentro do esperado.
 
+## ---------------------------------
 ## Executando a aplicação no VSCode
+## ---------------------------------
+
 Para que a aplicação seja executada, deve-se abrir o terminal no VSCode e executar os seguintes comandos:
-(os passos a seguir, devem ser executados apenas na primeira vez ou somente quando necessário)
+(os próximos dois passos, devem ser executados apenas na primeira vez ou somente quando necessário)
 - Passo 1: dentro de \backend: (executar somente uma vez, para a criação da base de dados)
 ```
 dotnet ef database update
@@ -142,12 +145,14 @@ O próximo passo faz-se necessário somente caso necessite baixar/atualizar algu
 ```
 npm update
 ```
-(os passos a seguir, devem ser executados após os passos anteriores)
+(os passos a seguir, devem ser executados SOMENTE após os passos anteriores)
 - Passo 3: dentro de \backend:
+Para rodar a API 
 ```
 dotnet watch run
 ```
 - Passo 4: dentro de \frontend:
+Para rodar a aplicação principal
 ```
 npm start
 ```
@@ -156,110 +161,181 @@ Se não apresentar nenhum erro, pode-se acessar a aplicação pelo navegador, at
 ## Retornos
 Retorno das requisições feitas através do Postman
 
-### Obter Cliente
-- GetAll: obtem todos os Clientes cadastrados
+### Obter Pessoas
+- GetAll: obtem todos os Pessoas cadastradas
 ```` json
-url = http://localhost:5000/cliente
+url = http://localhost:5000/pessoa
+method = GET
+{
+    "id": 
+    "nome":
+    "sobrenome":
+}
+````
+- GetById: obtem determinada pessoa pelo Id
+```` json
+url = http://localhost:5000/pessoa/id
 method = GET
 {
     "id": 
     "nome":       
+    "sobrenome:
 }
 ````
-- GetById: obtem determinado Cliente pelo Id
+
+### Obter Salas disponiveis para Treinamento
+- GetAll: obtem todas as Salas de Treinamento cadastradas
 ```` json
-url = http://localhost:5000/cliente/id
+url = http://localhost:5000/salaTreinamento
+method = GET
+{
+    "id": 
+    "nome":
+    "lotacao":
+}
+````
+- GetById: obtem determinada Sala de Treinamento pelo Id
+```` json
+url = http://localhost:5000/salaTreinamento/id
 method = GET
 {
     "id": 
     "nome":       
+    "lotacao:
 }
 ````
 
-### Obter Produto
-- GetAll: obtem todos os Produtos cadastrados
+### Obter Espaços para Cafe
+- GetAll: obtem todos os Espaços para Café
 ```` json
-url = http://localhost:5000/produto
+url = http://localhost:5000/salaCafe
 method = GET
 {
     "id": 
-    "descricao":
-    "unidadeMedida":     
+    "nome":
 }
 ````
-- GetById: obtem determinado Produto pelo Id
+- GetById: obtem determinado Espaços para Café pelo Id
 ```` json
-url = http://localhost:5000/produto/id
+url = http://localhost:5000/salaCafe/id
 method = GET
 {
     "id": 
-    "descricao":
-    "unidadeMedida":     
-}
-````
-
-### Obter Problema
-- GetAll: obtem todos os Problemas cadastrados
-http://localhost:5000/problema
-```` json
-url = http://localhost:5000/problema
-method = GET
-{
-    "id": 
-    "descricao":       
-}
-````
-- GetById: obtem determinado Problema pelo Id
-```` json
-url = http://localhost:5000/problema/id
-method = GET
-{
-    "id": 
-    "descricao":       
+    "nome":
 }
 ````
 
-### Obter NC
-- GetAll: obtem todos as NC cadastradas, trazendo o Cliente, o Produto e o Problema vinculados.
-http://localhost:5000/naoConformidade
+### Obter Horários disponíveis para Treinamentos
+- GetAll: obtem todos os Horários de Treinamento
 ```` json
-url = http://localhost:5000/naoconformidade
+url = http://localhost:5000/etapa
+method = GET
+{
+    "inicio": 
+    "fin":
+}
+````
+- GetById: obtem determinado Horário de Treinamento pelo Id
+```` json
+url = http://localhost:5000/etapa/id
+method = GET
+{
+    "inicio": 
+    "fim":
+}
+````
+
+### Obter Horario de Café
+- GetAll: obtem todos os Horários de Café
+```` json
+url = http://localhost:5000/horarioCafe
+method = GET
+{
+    "inicio": 
+    "fin":
+}
+````
+- GetById: obtem determinado Horário de Café pelo Id
+```` json
+url = http://localhost:5000/horarioCafe/id
+method = GET
+{
+    "inicio": 
+    "fim":
+}
+````
+
+### Obter Informaçoes sobre Treinamentos
+- GetAll: obtem todos os treinamentos, trazendo Sala de Treinamento, a Pessoa, a Etapa (horário do Treinamento), Espaço para Café e Horario de Café vinculados
+```` json
+url = http://localhost:5000/pessoaSalaTreinamento
 method = GET
 {
     "id":
-    "quantidade":
-    "dataAbertura":
-    "clienteId":
-    "produtoId":
-    "problemaId":
-    "cliente": {
-        "id":
-        "nome":
-    },
-    "produto": {
-        "id":
-        "descricao":
-        "unidadeMedida":
-    },
-    "problema": {
-        "id":
-        "descricao":
+    "salaTreinamentoId":
+    "pessoaId":
+    "etapaId":
+    "salaCafeId":
+    "horarioCafeId":
+}
+````
+- GetById: obtem informações de determinado Treinamento pelo Id
+```` json
+url = http://localhost:5000/pessoaSalaTreinamento/id
+method = GET
+{
+    "id":
+    "salaTreinamentoId":
+    "pessoaId":
+    "etapaId":
+    "salaCafeId":
+    "horarioCafeId":
     }
 }
 ````
-- GetById: obtem determinada NC pelo Id
+- GetByPessoaId: obtem os treinamentos de determinada pessoa, trazendo Sala de Treinamento, a Pessoa, a Etapa (horário do Treinamento), Espaço para Café e Horario de Café vinculados
 ```` json
-url = http://localhost:5000/naoconformidade/id
+url = http://localhost:5000/pessoaSalaTreinamento/pessoaId=
+````
+- GetBySalaTreinamentoId: obtem uma lista de pessoas cadastradas em treinamentos em determinada sala, trazendo Sala de Treinamento, a Pessoa, a Etapa (horário do Treinamento), Espaço para Café e Horario de Café vinculados
+```` json
+url = http://localhost:5000/pessoaSalaTreinamento/salaTreinamentoId=
+````
+- GetBySalaCafeId: obtem uma lista de pessoas cadastradas em treinamentos em determinada sala (espaço) de café, trazendo Sala de Treinamento, a Pessoa, a Etapa (horário do Treinamento), Espaço para Café e Horario de Café vinculados
+```` json
+url = http://localhost:5000/pessoaSalaTreinamento/salaCafeId=
+```` json
 method = GET
 {
-    "id":
-    "quantidade":
-    "dataAbertura":
-    "clienteId":
-    "produtoId":
-    "problemaId":
-    "cliente": {},
-    "produto": {},
-    "problema": {}
-}
+        "id":
+        "salaTreinamentoId": 
+        "pessoaId": 
+        "etapaId": 
+        "salaCafeId": 
+        "horarioCafeId": 
+        "salaTreinamento": {
+            "id": 
+            "nome": 
+            "lotacao": 
+        },
+        "pessoa": {
+            "id": 
+            "nome": 
+            "sobrenome": 
+        },
+        "etapa": {
+            "id":
+            "inicio": 
+            "fim": 
+        },
+        "salaCafe": {
+            "id": 
+            "nome":
+        },
+        "horarioCafe": {
+            "id": 
+            "inicio": 
+            "fim":
+        }
+    }
 ````
