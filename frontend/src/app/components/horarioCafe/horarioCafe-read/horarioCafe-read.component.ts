@@ -1,4 +1,6 @@
+import { HorarioCafe } from './../../../models/HorarioCafe';
 import { Component, OnInit } from '@angular/core';
+import { HorarioCafeService } from 'src/app/services/horarioCafe.service';
 
 @Component({
   selector: 'app-horarioCafe-read',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HorarioCafeReadComponent implements OnInit {
 
-  constructor() { }
+  horariosCafe: HorarioCafe[];
+  displayedColumns = ['id', 'inicio', 'fim', 'acoes'];
+
+  constructor(
+    private horarioServico: HorarioCafeService
+  ) { }
 
   ngOnInit() {
+    this.horarioServico.getAll().subscribe(horariosCafe => {
+      this.horariosCafe = horariosCafe;
+    });
   }
+
 
 }

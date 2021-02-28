@@ -1,3 +1,4 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -17,7 +18,11 @@ export class EtapaUpdateComponent implements OnInit {
     fim: new FormControl('', [Validators.required])
   });
 
-  etapa: Etapa;
+  etapa: Etapa = {
+    id: 0,
+    inicio: null,
+    fim: null
+  }
 
   constructor(
     private etapaServico: EtapaService,

@@ -68,19 +68,6 @@ namespace backend.data
                    new PessoaSalaTreinamento(8,2,3,2,1,2),
                    new PessoaSalaTreinamento(9,2,4,2,1,2),
                });
-
-            //    builder.Entity<PessoaSalaCafe>()
-            //    .HasData(new List<PessoaSalaCafe>(){
-            //        new PessoaSalaCafe(1,1,1,1),
-            //        new PessoaSalaCafe(2,1,2,1),
-            //        new PessoaSalaCafe(3,1,3,1),
-            //        new PessoaSalaCafe(4,1,4,1),
-            //        new PessoaSalaCafe(5,1,5,1),
-            //        new PessoaSalaCafe(6,2,1,2),
-            //        new PessoaSalaCafe(7,2,2,2),
-            //        new PessoaSalaCafe(8,2,3,2),
-            //        new PessoaSalaCafe(9,2,4,2),
-            //    });
           }
     }
 }

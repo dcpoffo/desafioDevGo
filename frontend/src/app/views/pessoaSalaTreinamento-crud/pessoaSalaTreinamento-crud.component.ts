@@ -16,7 +16,7 @@ export class PessoaSalaTreinamentoCrudComponent implements OnInit {
     headerService.headerData = {
       title: 'Cadastro de Treinamento',
       icon: 'cast_for_education',
-      routeUrl: '/treinamentos'
+      routeUrl: '/pessoasSalaTreinamento'
     };
   }
 

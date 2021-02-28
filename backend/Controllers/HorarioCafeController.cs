@@ -68,7 +68,7 @@ namespace backend.Controllers
           {
                try
                {
-                    var horarioCafeCadastrado = await _repositorio.GetSalaCafeAsyncById(horarioCafeId);
+                    var horarioCafeCadastrado = await _repositorio.GetHorarioCafeAsyncById(horarioCafeId);
 
                     if (horarioCafeCadastrado == null)
                     {

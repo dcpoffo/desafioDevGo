@@ -23,10 +23,10 @@ namespace backend.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("DataHoraFim")
+                    b.Property<DateTime>("Inicio")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<DateTime>("DataHoraInicio")
+                    b.Property<DateTime>("fim")
                         .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");
@@ -37,14 +37,14 @@ namespace backend.Migrations
                         new
                         {
                             Id = 1,
-                            DataHoraFim = new DateTime(2021, 3, 22, 19, 11, 31, 779, DateTimeKind.Local).AddTicks(9562),
-                            DataHoraInicio = new DateTime(2021, 3, 22, 15, 11, 31, 778, DateTimeKind.Local).AddTicks(8317)
+                            Inicio = new DateTime(2021, 3, 30, 15, 28, 42, 778, DateTimeKind.Local).AddTicks(1976),
+                            fim = new DateTime(2021, 3, 30, 19, 28, 42, 779, DateTimeKind.Local).AddTicks(7693)
                         },
                         new
                         {
                             Id = 2,
-                            DataHoraFim = new DateTime(2021, 3, 23, 19, 11, 31, 780, DateTimeKind.Local).AddTicks(1743),
-                            DataHoraInicio = new DateTime(2021, 3, 23, 15, 11, 31, 780, DateTimeKind.Local).AddTicks(1737)
+                            Inicio = new DateTime(2021, 3, 31, 15, 28, 42, 780, DateTimeKind.Local).AddTicks(486),
+                            fim = new DateTime(2021, 3, 31, 19, 28, 42, 780, DateTimeKind.Local).AddTicks(503)
                         });
                 });
 
@@ -54,10 +54,10 @@ namespace backend.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("DataHoraFim")
+                    b.Property<DateTime>("Fim")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<DateTime>("DataHoraInicio")
+                    b.Property<DateTime>("Inicio")
                         .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");
@@ -68,14 +68,14 @@ namespace backend.Migrations
                         new
                         {
                             Id = 1,
-                            DataHoraFim = new DateTime(2021, 3, 22, 15, 26, 31, 780, DateTimeKind.Local).AddTicks(2547),
-                            DataHoraInicio = new DateTime(2021, 3, 22, 17, 11, 31, 780, DateTimeKind.Local).AddTicks(2541)
+                            Fim = new DateTime(2021, 3, 30, 15, 43, 42, 780, DateTimeKind.Local).AddTicks(1635),
+                            Inicio = new DateTime(2021, 3, 30, 17, 28, 42, 780, DateTimeKind.Local).AddTicks(1625)
                         },
                         new
                         {
                             Id = 2,
-                            DataHoraFim = new DateTime(2021, 3, 22, 15, 26, 31, 780, DateTimeKind.Local).AddTicks(4212),
-                            DataHoraInicio = new DateTime(2021, 3, 23, 17, 11, 31, 780, DateTimeKind.Local).AddTicks(4205)
+                            Fim = new DateTime(2021, 3, 30, 15, 43, 42, 780, DateTimeKind.Local).AddTicks(3955),
+                            Inicio = new DateTime(2021, 3, 31, 17, 28, 42, 780, DateTimeKind.Local).AddTicks(3943)
                         });
                 });
 
@@ -126,32 +126,6 @@ namespace backend.Migrations
                             Nome = "Gengis",
                             Sobrenome = "khan"
                         });
-                });
-
-            modelBuilder.Entity("backend.models.PessoaSalaCafe", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int>("HorarioCafeId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PessoaId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SalaCafeId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("HorarioCafeId");
-
-                    b.HasIndex("PessoaId");
-
-                    b.HasIndex("SalaCafeId");
-
-                    b.ToTable("PessoaSalaCafe");
                 });
 
             modelBuilder.Entity("backend.models.PessoaSalaTreinamento", b =>
@@ -206,7 +180,7 @@ namespace backend.Migrations
                             HorarioCafeId = 1,
                             PessoaId = 2,
                             SalaCafeId = 2,
-                            SalaTreinamentoId = 2
+                            SalaTreinamentoId = 1
                         },
                         new
                         {
@@ -215,7 +189,7 @@ namespace backend.Migrations
                             HorarioCafeId = 1,
                             PessoaId = 3,
                             SalaCafeId = 2,
-                            SalaTreinamentoId = 3
+                            SalaTreinamentoId = 1
                         },
                         new
                         {
@@ -224,7 +198,7 @@ namespace backend.Migrations
                             HorarioCafeId = 1,
                             PessoaId = 4,
                             SalaCafeId = 2,
-                            SalaTreinamentoId = 4
+                            SalaTreinamentoId = 1
                         },
                         new
                         {
@@ -251,7 +225,7 @@ namespace backend.Migrations
                             HorarioCafeId = 2,
                             PessoaId = 2,
                             SalaCafeId = 1,
-                            SalaTreinamentoId = 3
+                            SalaTreinamentoId = 2
                         },
                         new
                         {
@@ -260,7 +234,7 @@ namespace backend.Migrations
                             HorarioCafeId = 2,
                             PessoaId = 3,
                             SalaCafeId = 1,
-                            SalaTreinamentoId = 4
+                            SalaTreinamentoId = 2
                         },
                         new
                         {
@@ -269,7 +243,7 @@ namespace backend.Migrations
                             HorarioCafeId = 2,
                             PessoaId = 4,
                             SalaCafeId = 1,
-                            SalaTreinamentoId = 1
+                            SalaTreinamentoId = 2
                         });
                 });
 
@@ -352,33 +326,6 @@ namespace backend.Migrations
                         });
                 });
 
-            modelBuilder.Entity("backend.models.PessoaSalaCafe", b =>
-                {
-                    b.HasOne("backend.models.HorarioCafe", "HorarioCafe")
-                        .WithMany("PessoasSalaCafe")
-                        .HasForeignKey("HorarioCafeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("backend.models.Pessoa", "Pessoa")
-                        .WithMany("PessoasSalaCafe")
-                        .HasForeignKey("PessoaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("backend.models.SalaCafe", "SalaCafe")
-                        .WithMany("PessoasSalaCafe")
-                        .HasForeignKey("SalaCafeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("HorarioCafe");
-
-                    b.Navigation("Pessoa");
-
-                    b.Navigation("SalaCafe");
-                });
-
             modelBuilder.Entity("backend.models.PessoaSalaTreinamento", b =>
                 {
                     b.HasOne("backend.models.Etapa", "Etapa")
@@ -438,21 +385,9 @@ namespace backend.Migrations
                     b.Navigation("PessoasSalaTreinamento");
                 });
 
-            modelBuilder.Entity("backend.models.HorarioCafe", b =>
-                {
-                    b.Navigation("PessoasSalaCafe");
-                });
-
             modelBuilder.Entity("backend.models.Pessoa", b =>
                 {
-                    b.Navigation("PessoasSalaCafe");
-
                     b.Navigation("SalasTreinamento");
-                });
-
-            modelBuilder.Entity("backend.models.SalaCafe", b =>
-                {
-                    b.Navigation("PessoasSalaCafe");
                 });
 
             modelBuilder.Entity("backend.models.SalaTreinamento", b =>

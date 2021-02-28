@@ -11,7 +11,9 @@ import { SalaCafeService } from 'src/app/services/salaCafe.service';
 })
 export class SalaCafeDeleteComponent implements OnInit {
 
-  salaCafe: SalaCafe;
+  salaCafe: SalaCafe = {
+    nome: ''
+  };
 
   constructor(
     private salaCafeServico: SalaCafeService,

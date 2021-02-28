@@ -1,13 +1,14 @@
+import { Time } from "@angular/common";
 import { Timestamp } from "rxjs/internal/operators/timestamp";
 
 export class Etapa {
   id?: number;
-  dataHoraInicio: Date;
-  dataHoraFim: Date;
+  inicio: Date;
+  fim: Date;
 
   constructor() {
     this.id = 0;
-    this.dataHoraInicio = null;
-    this.dataHoraFim = null;
+    this.inicio = null;
+    this.fim = null;
   }
 }

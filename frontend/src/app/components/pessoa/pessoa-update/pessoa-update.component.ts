@@ -17,7 +17,11 @@ export class PessoaUpdateComponent implements OnInit {
     sobrenome: new FormControl('', [Validators.required, Validators.minLength(3)])
   });
 
-  pessoa: Pessoa;
+  //pessoa: Pessoa;
+  pessoa: Pessoa = {
+    nome: '',
+    sobrenome: ''
+  };
 
   constructor(
     private pessoaServico: PessoaService,

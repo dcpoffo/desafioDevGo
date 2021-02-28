@@ -5,20 +5,20 @@
             <div>
                 <mat-form-field appearance="outline">
                     <mat-label>Data/Hora Início</mat-label>
-                    <input formControlName="inicio" matInput [matDatepicker]="picker" [(ngModel)]="etapa.dataHoraInicio">
+                    <input formControlName="inicio" matInput [ngxMatDatetimePicker]="picker" [(ngModel)]="etapa.inicio">
                     <mat-error *ngIf="temErro('inicio', 'required')">Faltou informar a Data/Hora Início</mat-error>
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
+                    <ngx-mat-datetime-picker #picker></ngx-mat-datetime-picker>
                 </mat-form-field>
             </div>
 
             <div>
                 <mat-form-field appearance="outline">
-                    <mat-label>Data/Hora Fim</mat-label>
-                    <input formControlName="fim" matInput [matDatepicker]="picker1" [(ngModel)]="etapa.dataHoraFim">
+                    <mat-label>Data/Hora Término</mat-label>
+                    <input formControlName="fim" matInput [ngxMatDatetimePicker]="picker1" [(ngModel)]="etapa.fim">
                     <mat-error *ngIf="temErro('fim', 'required')">Faltou informar a Data/Hora Fim</mat-error>
                     <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-                    <mat-datepicker #picker1></mat-datepicker>
+                    <ngx-mat-datetime-picker #picker1></ngx-mat-datetime-picker>
                 </mat-form-field>
             </div>
         </form>

@@ -17,3 +17,13 @@ table {
 .delete>i {
     color: #e35e6b;
 }
+
+.linha {
+    display: flex;
+    flex-direction: row;
+}
+
+.coluna {
+    display: flex;
+    flex-direction: column;
+}

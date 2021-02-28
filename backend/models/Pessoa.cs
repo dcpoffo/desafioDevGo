@@ -7,8 +7,7 @@ namespace backend.models
           public int Id { get; set; }
           public string Nome { get; set; }
           public string Sobrenome { get; set; }
-          public IEnumerable<SalaTreinamento> SalasTreinamento { get; set; }
-          public IEnumerable<PessoaSalaCafe> PessoasSalaCafe { get; set; }
+          public IEnumerable<SalaTreinamento> SalasTreinamento { get; set; }          
 
           public Pessoa()
           { }

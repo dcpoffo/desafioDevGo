@@ -25,6 +25,30 @@ export class PessoaSalaTreinamentoService {
     );
   }
 
+  getByPessoaId(pessoaId: number): Observable<PessoaSalaTreinamento[]> {
+    const url = `${this.baseURL}/pessoaId=${pessoaId}`;
+    return this.http.get<PessoaSalaTreinamento[]>(url).pipe(
+      map((obj) => obj),
+      catchError((e) => this.errorHandler(e))
+    );
+  }
+
+  getBySalaTreinamentoId(salaTreinamentoId: number): Observable<PessoaSalaTreinamento[]> {
+    const url = `${this.baseURL}/salaTreinamentoId=${salaTreinamentoId}`;
+    return this.http.get<PessoaSalaTreinamento[]>(url).pipe(
+      map((obj) => obj),
+      catchError((e) => this.errorHandler(e))
+    );
+  }
+
+  getBySalaCafeId(salaCafeId: number): Observable<PessoaSalaTreinamento[]> {
+    const url = `${this.baseURL}/salaCafeId=${salaCafeId}`;
+    return this.http.get<PessoaSalaTreinamento[]>(url).pipe(
+      map((obj) => obj),
+      catchError((e) => this.errorHandler(e))
+    );
+  }
+
   getById(id: number): Observable<PessoaSalaTreinamento> {
     const url = `${this.baseURL}/${id}`;
     return this.http.get<PessoaSalaTreinamento>(url).pipe(
@@ -35,8 +59,9 @@ export class PessoaSalaTreinamentoService {
 
   put(pessoaSalaTreinamento: PessoaSalaTreinamento): Observable<PessoaSalaTreinamento> {
     const url = `${this.baseURL}/${pessoaSalaTreinamento.id}`;
+    console.log('teste');
     return this.http.put<PessoaSalaTreinamento>(url, pessoaSalaTreinamento).pipe(
-      map((obj) => obj),
+            map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );
   }

@@ -10,7 +10,7 @@ import { EtapaService } from 'src/app/services/etapa.service';
 export class EtapaReadComponent implements OnInit {
 
   etapas: Etapa[];
-  displayedColumns = ['id', 'dataHoraInicio', 'dataHoraFim', 'acoes'];
+  displayedColumns = ['id', 'inicio', 'fim', 'acoes'];
 
   constructor(
     private etapaServico: EtapaService

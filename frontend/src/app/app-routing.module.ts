@@ -39,6 +39,12 @@ import { PessoaSalaTreinamentoCreateComponent } from './components/pessoaSalaTre
 import { PessoaSalaTreinamentoUpdateComponent } from './components/pessoaSalaTreinamento/pessoaSalaTreinamento-update/pessoaSalaTreinamento-update.component';
 import { PessoaSalaTreinamentoDeleteComponent } from './components/pessoaSalaTreinamento/pessoaSalaTreinamento-delete/pessoaSalaTreinamento-delete.component';
 
+import { PessoaSalaTreinamentoPesquisaComponent } from './views/pesquisas/pessoaSalaTreinamentoPesquisa/pessoaSalaTreinamentoPesquisa.component';
+import { PessoaSalaTreinamentoResultadoPesquisaComponent } from './components/pesquisa/pessoaSalaTreinamentoResultadoPesquisa/pessoaSalaTreinamentoResultadoPesquisa.component';
+import { PessoaSalaTreinamentoResultadoPesquisaSalaTreinamentoComponent } from './components/pesquisa/pessoaSalaTreinamentoResultadoPesquisa-salaTreinamento/pessoaSalaTreinamentoResultadoPesquisa-salaTreinamento.component';
+import { PessoaSalaTreinamentoResultadoPesquisaSalaCafeComponent } from './components/pesquisa/pessoaSalaTreinamentoResultadoPesquisa-salaCafe/pessoaSalaTreinamentoResultadoPesquisa-salaCafe.component';
+
+
 const routes: Routes = [
   { path: '', component: HomeComponent },
 
@@ -77,6 +83,12 @@ const routes: Routes = [
   {path: 'pessoasSalaTreinamento/create', component: PessoaSalaTreinamentoCreateComponent},
   {path: 'pessoasSalaTreinamento/update/:id', component: PessoaSalaTreinamentoUpdateComponent},
   {path: 'pessoasSalaTreinamento/delete/:id', component: PessoaSalaTreinamentoDeleteComponent},
+
+  //pesquisas
+  {path: 'pesquisaPessoas', component: PessoaSalaTreinamentoPesquisaComponent},
+  {path: 'pesquisaPessoasResultado/:id', component: PessoaSalaTreinamentoResultadoPesquisaComponent},
+  {path: 'pesquisaSalaTreinamentoResultado/:id', component: PessoaSalaTreinamentoResultadoPesquisaSalaTreinamentoComponent},
+  {path: 'pesquisaSalaCafeResultado/:id', component: PessoaSalaTreinamentoResultadoPesquisaSalaCafeComponent},
 
 ];
 

@@ -1,20 +1,6 @@
 <div>
     <mat-card>
         <mat-card-title>Deseja realmente excluir esse Horário de Aula? </mat-card-title>
-        <form>
-            <div>
-                <mat-form-field appearance="outline">
-                    <input matInput placeholder="Id" [value]="etapa.id" name="id" disabled>
-                </mat-form-field>
-
-                <mat-form-field appearance="outline">
-                    <input matInput placeholder="Data/Hora Início" [value]="etapa.dataHoraInicio" name="dataHoraInicio" disabled>
-                </mat-form-field>
-                <mat-form-field appearance="outline">
-                    <input matInput placeholder="Data/Hora Fim" [value]="etapa.dataHoraFim" name="dataHoraFim" disabled>
-                </mat-form-field>
-            </div>
-        </form>
         <mat-card-actions>
             <button mat-raised-button (click)="apagar()" color="warn"> Excluir </button>
 

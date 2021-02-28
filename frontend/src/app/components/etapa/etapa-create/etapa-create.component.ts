@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Etapa } from 'src/app/models/Etapa';
@@ -12,6 +12,7 @@ import { MensagemService } from 'src/app/services/mensagem.service';
 })
 export class EtapaCreateComponent implements OnInit {
 
+
   etapaForm = new FormGroup({
     inicio: new FormControl('', [Validators.required]),
     fim: new FormControl('', [Validators.required])
@@ -19,14 +20,15 @@ export class EtapaCreateComponent implements OnInit {
 
   etapa: Etapa = {
     id: 0,
-    dataHoraInicio: null,
-    dataHoraFim: null
+    inicio: null,
+    fim: null
   };
 
   constructor(
     private etapaServico: EtapaService,
     private mensagemServico: MensagemService,
-    private router: Router
+    private router: Router,
+
   ) { }
 
   ngOnInit() {

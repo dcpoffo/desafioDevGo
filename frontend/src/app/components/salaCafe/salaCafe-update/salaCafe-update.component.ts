@@ -16,7 +16,9 @@ export class SalaCafeUpdateComponent implements OnInit {
     nome: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(20)])
   });
 
-  salaCafe: SalaCafe;
+  salaCafe: SalaCafe = {
+    nome: ''
+  };
 
   constructor(
     private salaCafeServico: SalaCafeService,

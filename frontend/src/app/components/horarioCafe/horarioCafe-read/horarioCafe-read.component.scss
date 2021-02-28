@@ -1,0 +1,29 @@
+div {
+    width: 50%;
+}
+
+table {
+    width: 100%;
+}
+
+.edit {
+    margin-right: 10px;
+}
+
+.edit>i {
+    color: #6b5ee3;
+}
+
+.delete>i {
+    color: #e35e6b;
+}
+
+.linha {
+    display: flex;
+    flex-direction: row;
+}
+
+.coluna {
+    display: flex;
+    flex-direction: column;
+}

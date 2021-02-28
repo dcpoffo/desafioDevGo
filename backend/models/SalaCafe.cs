@@ -5,8 +5,7 @@ namespace backend.models
      public class SalaCafe
      {          
           public int Id { get; set; }
-          public string Nome { get; set; }
-          public IEnumerable<PessoaSalaCafe> PessoasSalaCafe { get; set; }
+          public string Nome { get; set; }         
 
           public SalaCafe()
           { }

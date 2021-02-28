@@ -1,3 +1,59 @@
-<p>
-  pessoaSalaTreinamento-update works!
-</p>
+<div class="janela">
+    <mat-card>
+        <mat-card-title>Alterando treinamento</mat-card-title>
+        <form [formGroup]="form">
+            <div class="coluna">
+                <mat-form-field appearance="outline" class="select">
+                    <mat-label>Aluno</mat-label>
+                    <mat-select formControlName="pessoa" [(ngModel)]="pessoaSalaTreinamento.pessoaId">
+                        <mat-option *ngFor="let pes of pessoas" [value]="pes.id"> {{pes.nome}} {{pes.sobrenome}}</mat-option>
+                    </mat-select>
+                    <!-- <mat-error *ngIf="temErro('pessoa', 'required')">O nome do aluno ser selecionado</mat-error> -->
+                </mat-form-field>
+            </div>
+
+            <div class="linha">
+                <mat-form-field appearance="outline" class="select">
+                    <mat-label>Sala do Treinamento</mat-label>
+                    <mat-select formControlName="salaTreinamento" [(ngModel)]="pessoaSalaTreinamento.salaTreinamentoId">
+                        <mat-option *ngFor="let salaTre of salasTreinamento" [value]="salaTre.id"> {{salaTre.nome}}</mat-option>
+                    </mat-select>
+                    <!-- <mat-error *ngIf="temErro('salaTreinamento', 'required')">A sala deve ser selecionado</mat-error> -->
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="select">
+                    <mat-label>Horário Treinamento (Início/Fim)</mat-label>
+                    <mat-select formControlName="etapa" [(ngModel)]="pessoaSalaTreinamento.etapaId">
+                        <mat-option *ngFor="let eta of etapas" [value]="eta.id"> {{eta.inicio | date: 'dd/MM/yyyy HH:mm'}} - {{eta.fim | date: 'dd/MM/yyyy HH:mm'}}</mat-option>
+                    </mat-select>
+                    <!-- <mat-error *ngIf="temErro('etapa', 'required')">O horário do treinamento deve ser selecionado</mat-error> -->
+                </mat-form-field>
+            </div>
+
+            <div class="linha">
+                <mat-form-field appearance="outline" class="select">
+                    <mat-label>Espaço para Café</mat-label>
+                    <mat-select formControlName="cafe" [(ngModel)]="pessoaSalaTreinamento.salaCafeId">
+                        <mat-option *ngFor="let salaCaf of salasCafe" [value]="salaCaf.id"> {{salaCaf.nome}}</mat-option>
+                    </mat-select>
+                    <!-- <mat-error *ngIf="temErro('cafe', 'required')">O espaço para o café</mat-error> -->
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="select">
+                    <mat-label>Horário Café (Início/Fim)</mat-label>
+                    <mat-select formControlName="horarioCafe" [(ngModel)]="pessoaSalaTreinamento.horarioCafeId">
+                        <mat-option *ngFor="let horCaf of horariosCafe" [value]="horCaf.id"> {{horCaf.inicio | date: 'dd/MM/yyyy HH:mm'}} - {{horCaf.fim | date: 'dd/MM/yyyy HH:mm'}}</mat-option>
+                    </mat-select>
+                    <!-- <mat-error *ngIf="temErro('horarioCafe', 'required')">O horário para o café deve ser selecionado</mat-error> -->
+                </mat-form-field>
+            </div>
+
+        </form>
+
+        <button [disabled]="!form.valid" mat-raised-button (click)="atualizar()" color="primary">
+  Salvar
+</button>
+
+        <button mat-raised-button (click)="cancelar()">Cancelar</button>
+    </mat-card>
+</div>

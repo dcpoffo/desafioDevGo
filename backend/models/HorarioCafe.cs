@@ -5,19 +5,20 @@ namespace backend.models
 {
      public class HorarioCafe
      {
+          public HorarioCafe(int id, DateTime inicio, DateTime fim)
+          {
+               this.Id = id;
+               this.Inicio = inicio;
+               this.Fim = fim;
+          }
           public int Id { get; set; }
-          public DateTime DataHoraInicio { get; set; }
-          public DateTime DataHoraFim { get; set; }
-          public IEnumerable<PessoaSalaCafe> PessoasSalaCafe { get; set; }
+          public DateTime Inicio { get; set; }
+          public DateTime Fim { get; set; }
+          
 
           public HorarioCafe()
           { }
 
-          public HorarioCafe(int id, DateTime dataHoraInicio, DateTime dataHoraFim)
-          {
-               this.Id = id;
-               this.DataHoraInicio = dataHoraInicio;
-               this.DataHoraFim = dataHoraFim;
-          }
+
      }
 }

@@ -17,7 +17,10 @@ export class SalaTreinamentoUpdateComponent implements OnInit {
     lotacao: new FormControl('', [Validators.required, Validators.min(4)])
   });
 
-  salaTreinamento: SalaTreinamento;
+  salaTreinamento: SalaTreinamento = {
+    nome: '',
+    lotacao: null
+  };
 
   constructor(
     private salaTreinamentoServico: SalaTreinamentoService,

@@ -11,7 +11,10 @@ import { SalaTreinamentoService } from 'src/app/services/salaTreinamento.service
 })
 export class SalaTreinamentoDeleteComponent implements OnInit {
 
-  salaTreinamento: SalaTreinamento;
+  salaTreinamento: SalaTreinamento = {
+    nome: '',
+    lotacao: null
+  };
 
   constructor(
     private salaTreinamentoServico: SalaTreinamentoService,

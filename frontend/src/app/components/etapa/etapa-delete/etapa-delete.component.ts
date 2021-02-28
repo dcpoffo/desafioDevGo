@@ -11,7 +11,11 @@ import { MensagemService } from 'src/app/services/mensagem.service';
 })
 export class EtapaDeleteComponent implements OnInit {
 
-  etapa: Etapa;
+  etapa: Etapa = {
+    id: 0,
+    inicio: null,
+    fim: null
+  }
 
   constructor(
     private etapaServico: EtapaService,

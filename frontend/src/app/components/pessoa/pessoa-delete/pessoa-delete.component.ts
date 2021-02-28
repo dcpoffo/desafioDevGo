@@ -11,7 +11,10 @@ import { PessoaService } from 'src/app/services/pessoa.service';
 })
 export class PessoaDeleteComponent implements OnInit {
 
-  pessoa: Pessoa;
+  pessoa: Pessoa = {
+    nome: '',
+    sobrenome: ''
+  };
 
   constructor(
     private pessoaServico: PessoaService,

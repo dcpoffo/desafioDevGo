@@ -21,14 +21,13 @@
             <th mat-header-cell *matHeaderCellDef>Ações</th>
             <td mat-cell *matCellDef="let row">
                 <a routerLink="/salasTreinamento/update/{{ row.id }}" class="edit">
-                    <i class="material-icons">
-                edit
-            </i>
+                    <i class="material-icons">edit</i>
                 </a>
                 <a routerLink="/salasTreinamento/delete/{{ row.id }}" class="delete">
-                    <i class="material-icons">
-                delete
-            </i>
+                    <i class="material-icons">delete</i>
+                </a>
+                <a routerLink="/pesquisaSalaTreinamentoResultado/{{ row.id }}" class="pesquisar">
+                    <i class="material-icons">search</i>
                 </a>
             </td>
         </ng-container>

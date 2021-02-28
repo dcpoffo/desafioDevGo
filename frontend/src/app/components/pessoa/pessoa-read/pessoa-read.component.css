@@ -17,3 +17,7 @@ table {
 .delete>i {
     color: #e35e6b;
 }
+
+.pesquisar>i {
+    color: darkblue;
+}

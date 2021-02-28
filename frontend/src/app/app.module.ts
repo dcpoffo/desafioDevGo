@@ -19,6 +19,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
+import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerModule  } from '@angular-material-components/datetime-picker';
 
 import { HomeComponent } from './views/home/home.component';
 import { HeaderComponent } from './components/template/header/header.component';
@@ -67,6 +68,11 @@ import { PessoaSalaTreinamentoReadComponent } from './components/pessoaSalaTrein
 import { PessoaSalaTreinamentoUpdateComponent } from './components/pessoaSalaTreinamento/pessoaSalaTreinamento-update/pessoaSalaTreinamento-update.component';
 import { PessoaSalaTreinamentoDeleteComponent } from './components/pessoaSalaTreinamento/pessoaSalaTreinamento-delete/pessoaSalaTreinamento-delete.component';
 
+import { PessoaSalaTreinamentoPesquisaComponent } from './views/pesquisas/pessoaSalaTreinamentoPesquisa/pessoaSalaTreinamentoPesquisa.component';
+import { PessoaSalaTreinamentoResultadoPesquisaComponent } from './components/pesquisa/pessoaSalaTreinamentoResultadoPesquisa/pessoaSalaTreinamentoResultadoPesquisa.component';
+import { PessoaSalaTreinamentoResultadoPesquisaSalaTreinamentoComponent } from './components/pesquisa/pessoaSalaTreinamentoResultadoPesquisa-salaTreinamento/pessoaSalaTreinamentoResultadoPesquisa-salaTreinamento.component';
+import { PessoaSalaTreinamentoResultadoPesquisaSalaCafeComponent } from './components/pesquisa/pessoaSalaTreinamentoResultadoPesquisa-salaCafe/pessoaSalaTreinamentoResultadoPesquisa-salaCafe.component';
+
 
 @NgModule({
   declarations: [
@@ -105,6 +111,10 @@ import { PessoaSalaTreinamentoDeleteComponent } from './components/pessoaSalaTre
     PessoaSalaTreinamentoReadComponent,
     PessoaSalaTreinamentoUpdateComponent,
     PessoaSalaTreinamentoDeleteComponent,
+    PessoaSalaTreinamentoPesquisaComponent,
+    PessoaSalaTreinamentoResultadoPesquisaComponent,
+    PessoaSalaTreinamentoResultadoPesquisaSalaTreinamentoComponent,
+    PessoaSalaTreinamentoResultadoPesquisaSalaCafeComponent
   ],
 
 
@@ -129,11 +139,17 @@ import { PessoaSalaTreinamentoDeleteComponent } from './components/pessoaSalaTre
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    NgxMatDatetimePickerModule,
+    NgxMatTimepickerModule,
+    NgxMatNativeDateModule,
   ],
   providers: [
     MatFormFieldModule,
     MatDatepickerModule,
+    NgxMatDatetimePickerModule,
+    NgxMatTimepickerModule,
+    NgxMatNativeDateModule,
     { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }
   ],
   bootstrap: [AppComponent]
